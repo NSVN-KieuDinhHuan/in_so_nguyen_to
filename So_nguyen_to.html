@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In so nguyen to</title>
+</head>
+<body>
+<h1>In số nguyên tố đầu tiên</h1>
+<label>Số lượng</label>
+<input id="soluong">
+<br>
+<pre id="print"></pre>
+<button onclick="insonguyento()">In</button>
+<script>
+function insonguyento() {
+    let sl = parseInt(document.getElementById("soluong").value)
+    document.getElementById("print").innerHTML=""
+    let count = 0
+    let checkNumber = 2;
+        while (count <sl) {
+            if (checkNumber===2) {
+                document.getElementById("print").innerHTML+=checkNumber +"," ;
+                count++
+            }
+            if (checkNumber>2) {
+                let isPrime = true
+                for (i = 2; i < checkNumber; i++) {
+                    if (checkNumber % i === 0) {
+                        isPrime = false
+                    }
+                }
+                if (isPrime === true) {
+                    count = count + 1
+                    document.getElementById("print").innerHTML+=checkNumber
+                    if (count<sl){
+                        document.getElementById("print").innerHTML+=","
+                    }
+                }
+            }
+            checkNumber = checkNumber + 1
+        }
+
+
+}
+</script>
+</body>
+</html>
